@@ -30,6 +30,15 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context)
+                  .pop(); // or context.pop() if using go_router
+            },
+          ),
+        ),
         backgroundColor: AppColor.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
