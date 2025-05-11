@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class AuthGradientButton extends StatefulWidget {
   final Function()? onPressed;
-  const AuthGradientButton({super.key, this.onPressed});
+  final String buttonText;
+  const AuthGradientButton(
+      {super.key, this.onPressed, required this.buttonText});
 
   @override
   State<AuthGradientButton> createState() => _AuthGradientButtonState();
@@ -30,9 +32,9 @@ class _AuthGradientButtonState extends State<AuthGradientButton> {
           fixedSize: Size(MediaQuery.of(context).size.width, 50),
         ),
         onPressed: widget.onPressed,
-        child: const Text(
-          "Sign Up",
-          style: TextStyle(
+        child: Text(
+          widget.buttonText,
+          style: const TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w700,
           ),
