@@ -5,18 +5,17 @@ import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LogInPage extends StatefulWidget {
+  const LogInPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LogInPage> createState() => _LogInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LogInPageState extends State<LogInPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _nameController = TextEditingController();
 
   @override
   void dispose() {
@@ -24,7 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _nameController.dispose();
+    // _nameController.dispose();
   }
 
   @override
@@ -39,18 +38,11 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Sign Up.",
+                  "Sign In.",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
                 ),
                 const SizedBox(
                   height: 30,
-                ),
-                AuthField(
-                  controller: _nameController,
-                  hinttext: "Name",
-                ),
-                const SizedBox(
-                  height: 15,
                 ),
                 AuthField(
                   controller: _emailController,
@@ -68,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 15,
                 ),
                 AuthGradientButton(
-                    buttonText: "Sign Up",
+                    buttonText: "Sign In",
                     onPressed: (() {
                       _formKey.currentState!.validate();
                     })),
@@ -76,12 +68,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: () => context.go(RouteNames.signIn),
+                  onTap: () => context.go(RouteNames.signUp),
                   child: RichText(
                       text: TextSpan(
                           children: [
                         TextSpan(
-                          text: 'Sign In',
+                          text: 'Sign Up',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
@@ -90,7 +82,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   fontWeight: FontWeight.bold),
                         )
                       ],
-                          text: "Already have an account? ",
+                          text: "Don't have an account? ",
                           style: Theme.of(context).textTheme.titleMedium)),
                 )
               ],

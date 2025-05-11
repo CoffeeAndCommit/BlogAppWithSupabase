@@ -1,5 +1,5 @@
+import 'package:blog_app/core/routes/allRoutes.dart';
 import 'package:blog_app/core/theme/theme.dart';
-import 'package:blog_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +12,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Blog App',
       theme: AppTheme.darkThemeMode,
-      home: const SignUpPage(),
+      routerConfig: router,
+      // home: const SignUpPage(),
+      // home: const LogInPage(),
     );
   }
 }
